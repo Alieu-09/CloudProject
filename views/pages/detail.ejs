@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Detail</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    home
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+</head>
+<body>
+  <header>
+  <%- include("../partials/nav") %>
+  </header>
+<h1>Game Overview</h1>
+
+  <div class="container mt-4">
+
+    <h1><%= game.title %></h1>
+
+    <div class="mb-3">
+      <% if (game.imageUrl) { %>
+        <img src="<%= game.imageUrl %>" class="img-fluid" style="max-width: 300px;" />
+      <% } else { %>
+        <p>No image available</p>
+      <% } %>
+    </div>
+
+    <div class="card p-3 mb-3">
+      <p><strong>ID:</strong> <%= game.id %></p>
+      <p><strong>Genre:</strong> <%= game.genre %></p>
+      <p><strong>Prijs:</strong> €<%= game.price %></p>
+      <p><strong>Beschrijving:</strong> <%= game.description %></p>
+      <p><strong>releasedatum:</strong> <%= game.releaseDate %></p>
+      <p><strong>Multiplayer:</strong> <%= game.isMultiplayer ? "Yes" : "No" %></p>
+    </div>
+
+    <div class="card p-3 mb-3">
+      <h4>Platformen</h4>
+      <ul>
+        <% game.platforms.forEach(platform => { %>
+          <li><%= platform %></li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <div class="card p-3 mb-3">
+      <h4>Developer</h4>
+      <p><strong>Naam: </strong><a href="/studio/<%= game.developer.id %>"><%= game.developer.name %></a></p>
+      <p><strong>opgericht: </strong> <%= game.developer.foundedYear %></p>
+      <p><strong>HQ: </strong> <%= game.developer.headquarters %></p>
+    </div>
+
+</body>
+
+
+</body>
+</html>

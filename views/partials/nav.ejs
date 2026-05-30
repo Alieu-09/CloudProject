@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-light"><a href="/games" class="btn btn-light">Games</a></button>
+      <button type="button" class="btn btn-light"><a href="/studio" class="btn btn-light">Studios</a></button>
+      <button type="button" class="btn btn-light"><a href="/logout" class="btn btn-light"><i class="bi bi-box-arrow-right"></i></a></button>
+      <% if (locals.user?.role === "ADMIN") { %>
+        <button type="button" class="btn btn-light"><a href="/admin" class="btn btn-light">Dashboard</a></button>
+      <% } %>
+    </div>
+    <form class="d-flex" role="search" method="get" action="/games">
+      <input class="form-control me-2"ype="search" name="search" placeholder="zoek games" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">zoek</button>
+    </form>
+  </div>
+</nav>
